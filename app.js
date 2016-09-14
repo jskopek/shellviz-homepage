@@ -1,4 +1,7 @@
 'use strict';
+
+// source: https://medium.com/@svilen/auto-updating-apps-for-windows-and-osx-using-electron-the-complete-guide-4aa7a50b904c#.dwte8fisz
+
 const fs = require('fs');
 const express = require('express');
 const path = require('path');
@@ -18,7 +21,7 @@ app.get('/updates/latest', (req, res) => {
     res.status(204).end();
   } else {
     res.json({
-      url: `${getBaseUrl()}/releases/darwin/${latest}/MyApp.zip`
+      url: `${getBaseUrl()}/releases/darwin/${latest}/shellvis.zip`
     });
   }
 });
@@ -38,7 +41,7 @@ let getBaseUrl = () => {
   if (process.env.NODE_ENV === 'development') {
     return 'http://localhost:3000';
   } else {
-    return 'http://download.mydomain.com'
+    return 'http://shellvis.herokuapp.com'
   }
 }
 
