@@ -21,7 +21,7 @@ app.get('/updates/latest', (req, res) => {
     res.status(204).end();
   } else {
     res.json({
-      url: `${getBaseUrl()}/releases/darwin/${latest}/shellvis.zip`
+      url: `${getBaseUrl()}/updates/releases/darwin/${latest}/shellvis.zip`
     });
   }
 });
