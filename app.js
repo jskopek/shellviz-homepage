@@ -8,10 +8,20 @@ const path = require('path');
 const app = express();
 
 app.set('port', (process.env.PORT || 5000));
+app.set('view engine', 'pug');
+
 
 app.use(require('morgan')('dev'));
 
+app.get('/', (req, res) => {
+  const latest = getLatestRelease();
+  res.render('index', {
+      url: `${getBaseUrl()}/updates/releases/darwin/${latest}/shellvis.zip`
+  });
+});
+
 app.use('/updates/releases', express.static(path.join(__dirname, 'releases')));
+app.use('/static', express.static(path.join(__dirname, 'static')));
 
 app.get('/updates/latest', (req, res) => {
   const latest = getLatestRelease();

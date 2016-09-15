@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "express": "^4.9.8",
-    "morgan": "^1.3.2"
+    "morgan": "^1.3.2",
+    "pug": "^2.0.0-beta6"
   },
   "devDependencies": {
     "nodemon": "^1.8.1"
