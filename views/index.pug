@@ -9,3 +9,15 @@ html
         h1 Shellvis
         h2 Easily visualize data from your code
         a(href=url,class='download') Download (OS X)
+
+        h1 Python library
+        p First, install the `shellvis` library
+        pre. 
+            pip install shellvis
+        p Then, from a `python` shell:
+        pre.
+            from shellvis import visualize
+            visualize('hello world')
+            visualize([1,2,3,4])
+            visualize({latitude: 37.263056, longitude: -115.79302})
+            visualize('http://feelgrafix.com/data_images/out/28/970399-area-51.jpg')
