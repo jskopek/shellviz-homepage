@@ -9,15 +9,36 @@ html
         h1 Shellvis
         h2 Easily visualize data from your code
         a(href=url,class='download') Download (OS X)
+        img(class='overview-screenshot',src='static/screenshots/overview.png')
+        div(class='overview-screenshot-separator')
 
         h1 Python library
+
         p First, install the `shellvis` library
         pre. 
             pip install shellvis
+
         p Then, from a `python` shell:
+
         pre.
             from shellvis import visualize
             visualize('hello world')
-            visualize([1,2,3,4])
-            visualize({latitude: 37.263056, longitude: -115.79302})
+        img(class='screenshot',src='static/screenshots/text.png')
+
+        pre.
+            from shellvis import visualize
+            ufo_sightings_json = json.loads(urllib.urlopen('https://raw.githubusercontent.com/mozilla/metrics-graphics/master/examples/data/ufo-sightings.json').read())
+            visualize(ufo_sightings_json)
+        img(class='screenshot',src='static/screenshots/jsonObject.png')
+
+        pre.
+            visualize(map(lambda s: s['sightings'], ufo_sightings_json))
+        img(class='screenshot',src='static/screenshots/areaChart.png')
+
+        pre.
+            visualize({'latitude': 37.263056, 'longitude': -115.79302})
+        img(class='screenshot',src='static/screenshots/location.png')
+
+        pre.
             visualize('http://feelgrafix.com/data_images/out/28/970399-area-51.jpg')
+        img(class='screenshot',src='static/screenshots/image.png')
