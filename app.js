@@ -51,7 +51,7 @@ let getBaseUrl = () => {
   if (process.env.NODE_ENV === 'development') {
     return 'http://localhost:3000';
   } else {
-    return 'http://shellvis.herokuapp.com'
+    return 'http:/shellviz.com'
   }
 }
 
