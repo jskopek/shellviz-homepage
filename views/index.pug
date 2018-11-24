@@ -27,12 +27,12 @@ html
 
         pre.
             from shellvis import visualize
-            ufo_sightings_json = json.loads(urllib.urlopen('https://raw.githubusercontent.com/mozilla/metrics-graphics/master/examples/data/ufo-sightings.json').read())
+            ufo_sightings_json = json.loads(urllib.request.urlopen('https://raw.githubusercontent.com/mozilla/metrics-graphics/master/examples/data/ufo-sightings.json').read())
             visualize(ufo_sightings_json)
         img(class='screenshot',src='static/screenshots/jsonObject.png')
 
         pre.
-            visualize(map(lambda s: s['sightings'], ufo_sightings_json))
+            visualize([s['sightings'] for s in ufo_sightings_json])
         img(class='screenshot',src='static/screenshots/areaChart.png')
 
         pre.
@@ -40,5 +40,5 @@ html
         img(class='screenshot',src='static/screenshots/location.png')
 
         pre.
-            visualize('http://feelgrafix.com/data_images/out/28/970399-area-51.jpg')
+            visualize('https://s.hswstatic.com/gif/area-51-signs-360a.jpg')
         img(class='screenshot',src='static/screenshots/image.png')
