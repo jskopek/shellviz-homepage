@@ -3,6 +3,13 @@ html
     title=Shellviz
     link(rel='stylesheet',href='/static/main.css')
     link(rel='stylesheet',href='https://fonts.googleapis.com/css?family=Inconsolata|Meera+Inimai')
+    script(async,src='https://www.googletagmanager.com/gtag/js?id=UA-105680-12')
+    script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-105680-12');
   body
     div(class='wrapper')
         img(src='/static/logo.png')
