@@ -5,6 +5,10 @@ html
     link(rel='stylesheet',href='https://fonts.googleapis.com/css?family=Inconsolata|Meera+Inimai')
   body
     div(class='wrapper')
+        div(class='nav')
+            a(href='/',class='active') Home
+            a(href='/docs') Docs
+
         img(src='/static/logo.png')
         h1 Shellviz
         h2 Easily visualize data from your code
@@ -41,3 +45,5 @@ html
         pre.
             visualize('https://s.hswstatic.com/gif/area-51-signs-360a.jpg')
         img(class='screenshot',src='static/screenshots/image.png')
+
+    script(src='/static/main.js')

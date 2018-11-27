@@ -1,6 +1,5 @@
 body {
-    font-family: 'Meera Inimai', HelveticaNeue, sans-serif;
-}
+    font-family: 'Meera Inimai', HelveticaNeue, sans-serif; }
 .wrapper {
     padding-top: 50px;
     max-width: 400px;
@@ -38,4 +37,16 @@ pre {
 }
 .overview-screenshot-separator {
     border-top: 1px solid #ccc;
+}
+.nav {
+    display: flex;
+    justify-content: flex-end;
+}
+.nav a {
+    padding: 0 0.2em;
+    font-size: 1em;
+    color: #8D8D8D;
+}
+.nav a.active {
+    color: #000;
 }

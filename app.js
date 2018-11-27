@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
       url: `${getBaseUrl()}/updates/releases/darwin/${latest}/shellviz.zip`
   });
 });
+app.get('/docs', (req, res) => {
+  res.render('docs')
+});
+
 
 app.use('/updates/releases', express.static(path.join(__dirname, 'releases')));
 app.use('/static', express.static(path.join(__dirname, 'static')));
