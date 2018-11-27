@@ -1,31 +1,31 @@
 html
   head
-    title=Shellvis
+    title=Shellviz
     link(rel='stylesheet',href='/static/main.css')
     link(rel='stylesheet',href='https://fonts.googleapis.com/css?family=Inconsolata|Meera+Inimai')
   body
     div(class='wrapper')
         img(src='/static/logo.png')
-        h1 Shellvis
+        h1 Shellviz
         h2 Easily visualize data from your code
         a(href=url,class='download') Download (OS X)
         div(class='overview-screenshot-separator')
 
         h1 Python library
 
-        p First, install the `shellvis` library
+        p First, install the `shellviz` library
         pre. 
-            pip install shellvis
+            pip install shellviz
 
         p Then, from a `python` shell:
 
         pre.
-            from shellvis import visualize
+            from shellviz import visualize
             visualize('hello world')
         img(class='screenshot',src='static/screenshots/text.png')
 
         pre.
-            from shellvis import visualize
+            from shellviz import visualize
             ufo_sightings_json = json.loads(urllib.request.urlopen('https://raw.githubusercontent.com/mozilla/metrics-graphics/master/examples/data/ufo-sightings.json').read())
             visualize(ufo_sightings_json)
         img(class='screenshot',src='static/screenshots/jsonObject.png')

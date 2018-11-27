@@ -16,7 +16,7 @@ app.use(require('morgan')('dev'));
 app.get('/', (req, res) => {
   const latest = getLatestRelease();
   res.render('index', {
-      url: `${getBaseUrl()}/updates/releases/darwin/${latest}/shellvis.zip`
+      url: `${getBaseUrl()}/updates/releases/darwin/${latest}/shellviz.zip`
   });
 });
 
@@ -31,7 +31,7 @@ app.get('/updates/latest', (req, res) => {
     res.status(204).end();
   } else {
     res.json({
-      url: `${getBaseUrl()}/updates/releases/darwin/${latest}/shellvis.zip`
+      url: `${getBaseUrl()}/updates/releases/darwin/${latest}/shellviz.zip`
     });
   }
 });
