@@ -1,50 +1,105 @@
 html
-  head
-    title=Shellviz
-    link(rel='stylesheet',href='/static/main.css')
-    link(rel='stylesheet',href='https://fonts.googleapis.com/css?family=Inconsolata|Meera+Inimai')
-    script(async,src='https://www.googletagmanager.com/gtag/js?id=UA-105680-12')
-    script.
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    head
+        title=Shellviz
+        link(rel='stylesheet',href='/static/main.css')
+        link(rel='stylesheet',href='https://fonts.googleapis.com/css?family=Inconsolata|Meera+Inimai')
+        script(async,src='https://www.googletagmanager.com/gtag/js?id=UA-105680-12')
+        script.
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-105680-12');
+    body
+        div(class='shellviz-window')
+            img(src='/static/placeholder-window.png', width='100%')
+        div(class='header')
+            div(class='content')
+                h1(class='logo') Shellviz
+                h2(class='subtitle') Explore data visually,<br/>straight from the terminal
+        div(class='sub-header')
+            div(class='content')
+                a(href=url,class='btn btn-download') Download (OS X)
+                h2(class='text-light') Libraries
+                div(class='libraries')
+                    a(class='btn-library btn-library-python', href='#') Python
+                    a(class='btn-library btn-library-javascript', href='#') Javascript
+                    a(class='btn-library btn-library-ruby', href='#') Ruby
+        div(class='main')
+            div(class='content')
+                h1 What can you do with Shellviz?
+                div(class='example active', data-preview='static/screenshots/jsonObject.png')
+                    h3 Explore JSON
+                    p JSON data can be examined in two ways: as a color-coded, collapsible view, and as a series of cards that can be searched or filtered.
+                    pre.
+                        from shellviz import visualize
+                        ufo_sightings_json = json.loads(urllib.request.urlopen('https://raw.githubusercontent.com/mozilla/metrics-graphics/master/examples/data/ufo-sightings.json').read())
+                        visualize(ufo_sightings_json)
 
-        gtag('config', 'UA-105680-12');
-  body
-    div(class='wrapper')
-        img(src='/static/logo.png')
-        h1 Shellviz
-        h2 Easily visualize data from your code
-        a(href=url,class='download') Download (OS X)
-        div(class='overview-screenshot-separator')
+                div(class='example', data-preview='static/screenshots/areaChart.png')
+                    h3 Plot Data
+                    p JSON data can be examined in two ways: as a color-coded, collapsible view, and as a series of cards that can be searched or filtered.
+                    pre.
+                        visualize([s['sightings'] for s in ufo_sightings_json])
 
-        h1 Python library
 
-        p First, install the `shellviz` library
-        pre. 
-            pip install shellviz
+                div(class='example', data-preview='static/screenshots/location.png')
+                    h3 Map Data
+                    p JSON data can be examined in two ways: as a color-coded, collapsible view, and as a series of cards that can be searched or filtered.
+                    pre.
+                        visualize({'latitude': 37.263056, 'longitude': -115.79302})
 
-        p Then, from a `python` shell:
+                div(class='example', data-preview='static/screenshots/image.png')
+                    h3 View Images
+                    p JSON data can be examined in two ways: as a color-coded, collapsible view, and as a series of cards that can be searched or filtered.
+                    pre.
+                        visualize('https://s.hswstatic.com/gif/area-51-signs-360a.jpg')
 
-        pre.
-            from shellviz import visualize
-            visualize('hello world')
-        img(class='screenshot',src='static/screenshots/text.png')
+                div(class='example', data-preview='static/screenshots/text.png')
+                    h3 Simple Text
+                    p JSON data can be examined in two ways: as a color-coded, collapsible view, and as a series of cards that can be searched or filtered.
+                    pre.
+                        from shellviz import visualize
+                        visualize('hello world')
 
-        pre.
-            from shellviz import visualize
-            ufo_sightings_json = json.loads(urllib.request.urlopen('https://raw.githubusercontent.com/mozilla/metrics-graphics/master/examples/data/ufo-sightings.json').read())
-            visualize(ufo_sightings_json)
-        img(class='screenshot',src='static/screenshots/jsonObject.png')
 
-        pre.
-            visualize([s['sightings'] for s in ufo_sightings_json])
-        img(class='screenshot',src='static/screenshots/areaChart.png')
+        script(src='/static/main.js')
 
-        pre.
-            visualize({'latitude': 37.263056, 'longitude': -115.79302})
-        img(class='screenshot',src='static/screenshots/location.png')
-
-        pre.
-            visualize('https://s.hswstatic.com/gif/area-51-signs-360a.jpg')
-        img(class='screenshot',src='static/screenshots/image.png')
+//
+//
+//
+//    div(class='wrapper')
+//        img(src='/static/logo.png')
+//        h1 Shellviz
+//        h2 Easily visualize data from your code
+//        div(class='overview-screenshot-separator')
+//
+//        h1 Python library
+//
+//        p First, install the `shellviz` library
+//        pre. 
+//            pip install shellviz
+//
+//        p Then, from a `python` shell:
+//
+//        pre.
+//            from shellviz import visualize
+//            visualize('hello world')
+//        img(class='screenshot',src='static/screenshots/text.png')
+//
+//        pre.
+//            from shellviz import visualize
+//            ufo_sightings_json = json.loads(urllib.request.urlopen('https://raw.githubusercontent.com/mozilla/metrics-graphics/master/examples/data/ufo-sightings.json').read())
+//            visualize(ufo_sightings_json)
+//        img(class='screenshot',src='static/screenshots/jsonObject.png')
+//
+//        pre.
+//            visualize([s['sightings'] for s in ufo_sightings_json])
+//        img(class='screenshot',src='static/screenshots/areaChart.png')
+//
+//        pre.
+//            visualize({'latitude': 37.263056, 'longitude': -115.79302})
+//        img(class='screenshot',src='static/screenshots/location.png')
+//
+//        pre.
+//            visualize('https://s.hswstatic.com/gif/area-51-signs-360a.jpg')
+//        img(class='screenshot',src='static/screenshots/image.png')
