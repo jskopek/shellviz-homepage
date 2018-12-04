@@ -1,0 +1,46 @@
+div.panel-view-header
+    div.mode-buttons
+        if cardEnabled
+            button(data-mode='card')
+                i.mode-icon.mode-icon-card(class=mode=='card' ? 'active' : '') Card
+        if tableEnabled
+            button(data-mode='table')
+                i.mode-icon.mode-icon-image(class=mode=='table' ? 'active' : '') Table
+        if groupedBarEnabled
+            button(data-mode='grouped-bar')
+                i.mode-icon.mode-icon-bar(class=mode=='grouped-bar' ? 'active' : '') Bar
+        if gaugeEnabled
+            button(data-mode='gauge')
+                i.mode-icon.mode-icon-gauge(class=mode=='gauge' ? 'active' : '') Gauge
+        if areaEnabled
+            button(data-mode='area')
+                i.mode-icon.mode-icon-area(class=mode=='area' ? 'active' : '') Area
+        if pieEnabled
+            button(data-mode='pie')
+                i.mode-icon.mode-icon-pie(class=mode=='pie' ? 'active' : '') Pie
+        if barEnabled
+            button(data-mode='bar')
+                i.mode-icon.mode-icon-bar(class=mode=='bar' ? 'active' : '') Bar
+        if jsonEnabled
+            button(data-mode='json')
+                i.mode-icon.mode-icon-json(class=mode=='json' ? 'active' : '') JSON
+        if imageEnabled
+            button(data-mode='image')
+                i.mode-icon.mode-icon-image(class=mode=='image' ? 'active' : '') Image
+        if markdownEnabled
+            button(data-mode='markdown')
+                i.mode-icon.mode-icon-markdown(class=mode=='markdown' ? 'active' : '') Markdown
+        if locationEnabled
+            button(data-mode='location')
+                i.mode-icon.mode-icon-location(class=mode=='location' ? 'active' : '') Location
+        if numberEnabled
+            button(data-mode='number')
+                i.mode-icon.mode-icon-number(class=mode=='number' ? 'active' : '') Number
+        if rawEnabled
+            button(data-mode='raw')
+                i.mode-icon.mode-icon-raw(class=mode=='raw' ? 'active' : '') Original
+    span.updated-at #{updatedAt}
+    button.share-button.ui-icon.ui-icon-share Share
+    button.clear-button.ui-icon.ui-icon-clear Clear
+
+div.data-view

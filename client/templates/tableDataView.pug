@@ -1,0 +1,15 @@
+table.table-values
+    if header
+        thead
+            tr
+                each col in header
+                    td #{col ? col : '-'}
+    tbody
+        each row in rows
+            tr
+                each col in row
+                    td #{col ? col : '-'}
+
+div.pagination
+    input.search(placeholder='Search',value=searchQuery)
+    button(class='download-excel button') Download Excel

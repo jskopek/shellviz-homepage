@@ -5,3 +5,7 @@ document.querySelectorAll('.example').forEach((el) => {
         document.querySelector('.shellviz-window img').src = el.dataset['preview'];
     });
 })
+
+var sv = new window.Shellviz(document.querySelector('.shellviz-window'));
+sv.visualize('hello world');
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Shellviz</title>
+    <link rel="stylesheet" href="../public/main.css"/>
+    <link rel="stylesheet" href="../public/c3.min.css"/>
+    <link rel="stylesheet" href="../public/jquery.jsonview.min.css"/>
+    <link rel="stylesheet" href="../public/font-awesome.min.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata|Meera+Inimai' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+      <div id="update-downloading" class="alert alert-success hidden margin-2">
+        <p class="margin-0">Downloading update...</p>
+      </div>
+      <div id="update-installed" class="alert alert-success hidden margin-2">
+        <h4 class="margin-0">A new update is ready to be installed</h4>
+        <p class="margin-0">Update has been downloaded and will be automatically installed on quit</p>
+      </div>
+      <div id="outdated-library" class="alert alert-error hidden margin-2">
+        <p class="margin-0">Your library is outdated. Please update to the latest version using your package manager</p>
+      </div>
+      <div id="blank-canvas">
+        <img src="../public/icon.png" width=90 height=90/>
+        <h4 class="margin-1">Waiting for data</h4>
+        <p class="margin-1 light">Your data will show up here as soon as you pass it through the library</p>
+        <button class="margin-1">Getting Started</button>
+      </div>
+
+      <div id="canvas"></div>
+  </body>
+
+  <script>
+    // You can also require other files to run in this process
+    require('../public/main.js')
+  </script>
+</html>

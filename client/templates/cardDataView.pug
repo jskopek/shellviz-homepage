@@ -1,0 +1,13 @@
+table.card-values
+    each value in values
+        tr
+            th(class='card-value-title') #{value[0]}
+            td(class='card-value-data') #{value[1] ? value[1] : '-'}
+
+div.pagination
+    button(data-step=-99999999).ui-icon.ui-icon-first First
+    button(data-step=-1).ui-icon.ui-icon-prev Prev
+    span.pagination-description #{currentCard} of #{numCards}
+    button(data-step=99999999).ui-icon.ui-icon-last Last
+    button(data-step=1).ui-icon.ui-icon-next Next
+    input.search(placeholder='Search',value=searchQuery)
