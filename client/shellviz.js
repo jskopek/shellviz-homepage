@@ -1,4 +1,7 @@
 var PanelView = require('./views/panelView.js');
+require('./public/main.css');
+require('./public/jquery.jsonview.min.css');
+require('./public/c3.min.css');
 var $ = require('jquery');
 
 class Shellviz {
@@ -52,4 +55,26 @@ class Shellviz {
     }
 }
 window.Shellviz = Shellviz;
+
+
+//testing
+var sv = new window.Shellviz(document.querySelector('.shellviz-window'));
+sv.visualize('Hello from Shellviz!');
+
+
+document.querySelectorAll('.example').forEach((el) => {
+    el.addEventListener('click', (e) => {
+        document.querySelectorAll('.example').forEach((el) => { el.classList.remove('active'); });
+        el.classList.add('active');
+        var data = el.dataset['visualize'];
+        try {
+            data = JSON.parse(data);
+        } catch(e) {}
+        sv.data(Math.random(), data);
+    });
+})
+
+//endtesting
+
+
 module.exports = Shellviz;
