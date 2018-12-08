@@ -17,7 +17,8 @@ class Shellviz {
         });
     }
     visualize(data) {
-        this.data(undefined, data);
+        var id = Math.random();
+        this.data(id, data);
     }
     data(id, data) {
         if(this.panels[id]) {
