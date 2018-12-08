@@ -10,11 +10,14 @@ h1,h2,h3,h4 {
     color: #fff;
 }
 /* end fonts */
-h1.logo {
+a.logo {
+    text-decoration: none;
+}
+a.logo h1 {
     display: inline;
     margin: 0;
 }
-h1.logo:after {
+a.logo h1:after {
     content: '';
     display: inline-block;
     height: 1.2em;
@@ -38,13 +41,26 @@ h2.subtitle {
     background: #FFB300;
     padding: 30px 0;
 }
+.sub-header-libraries-header {
+    margin: 1em 0 0.2em 0;
+}
 .content {
     width: 44%;
     margin-left: 3%;
 }
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+}
+
 /* examples */
 .example {
     padding: .7em .5em;
+    transition: background .3s;
+    cursor: pointer;
+    margin: 0.5em 0;
 }
 .example h3 {
     margin: 0;
@@ -52,6 +68,16 @@ h2.subtitle {
 .example.active {
     background: #FFF9E6;
     border-radius: 4px;
+}
+.example:hover {
+    background: #fffcf2;
+}
+.example:hover .btn-send {
+    background: #ffb300;
+    border: 4px solid #ffb300;
+}
+.example:active .btn-send {
+    border: 4px solid #FFF9E6;
 }
 .example pre {
     overflow-x: auto;
@@ -63,39 +89,30 @@ h2.subtitle {
 
 /* buttons */
 .btn-library {
-    font-size: 1.5em;
-    color: #FFFFFF;
-    text-decoration: none;
-    margin-right: 1em;
+    font-size: 1.3em;
 }
-.btn-library:before {
-    background-repeat: no-repeat;
-    background-size: contain;
-    content: '';
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    margin-right: .3em;
-}
-.btn-library-python:before {
-    background-image: url(/static/library-python.png);
-}
-.btn-library-javascript:before {
-    background-image: url(/static/library-javascript.png);
-}
-.btn-library-ruby:before {
-    background-image: url(/static/library-ruby.png);
-}
-
-.btn-download {
+.btn {
     text-align: center;
     text-decoration: none;
-    padding: 1em 0;
     border-radius: 4px;
-    display: block;
     background: #E65100;
     color: #fff;
-    text-transform: uppercase;
+    display: inline-block;
+    line-height: 1em;
+    padding: .5em 1em;
+}
+.btn i {
+    margin-right: .3em;
+}
+.btn-download {
+    padding: 1em 0;
+    display: block;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+.btn-send {
+    transition: background .6s, border .8s;
+    border: 4px solid #E65100;
 }
 /* /buttons */
 
@@ -112,45 +129,3 @@ h2.subtitle {
     overflow-y: auto;
 }
 
-
-//body {
-//    font-family: 'Meera Inimai', HelveticaNeue, sans-serif;
-//}
-//.wrapper {
-//    padding-top: 50px;
-//    max-width: 400px;
-//    text-align: center;
-//    margin: 0 auto;
-//}
-//h1 {
-//    margin: 0;
-//    padding: 1em 0 0 0;
-//}
-//h2 {
-//    margin-top: 0;
-//    color: #8D8D8D;
-//}
-//.download {
-//    display: block;
-//    text-align: center;
-//    text-decoration: none;
-//    background: red;
-//    padding: 1em 0;
-//    border-radius: 4px;
-//    color: #fff;
-//    text-transform: uppercase;
-//    margin-bottom: 1em;
-//}
-//pre {
-//    text-align: left;
-//}
-//.screenshot {
-//    border: 10px solid #ccc;
-//    width: 300px;
-//}
-//.overview-screenshot {
-//    width: 350px;
-//}
-//.overview-screenshot-separator {
-//    border-top: 1px solid #ccc;
-//}
