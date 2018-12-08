@@ -32557,7 +32557,7 @@ setTimeout(function () {
     sv.data('hello', "## Hello! I'm Shellviz!");
 }, 1000);
 setTimeout(function () {
-    sv.data('logo', 'http://shellviz.com/static/shellviz-hello.png');
+    sv.data('logo', 'https://shellviz.com/static/shellviz-hello.png');
 }, 1500);
 setTimeout(function () {
     sv.data('instructions', "I'm a fully interactive, web-based version of the Shellviz client. Feed me data by clicking on any of the **Send to Shellviz** buttons.");
