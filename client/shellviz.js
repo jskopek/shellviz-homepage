@@ -59,7 +59,14 @@ window.Shellviz = Shellviz;
 
 //testing
 var sv = new window.Shellviz(document.querySelector('.shellviz-window'));
-sv.visualize('Hello from Shellviz!');
+setTimeout(() => { sv.data('hello', "## Hello!"); }, 0);
+setTimeout(() => { sv.data('hello', "## Hello! I'm Shellviz!"); }, 1000);
+setTimeout(() => { sv.data('logo', 'http://localhost:5000/static/shellviz-hello.png'); }, 1500);
+setTimeout(() => { sv.data('instructions', "I'm a fully interactive, web-based version of the Shellviz client. Feed me data by clicking on any of the **Send to Shellviz** buttons."); }, 4000);
+//#setTimeout(() => { sv.visualize([1,2,3]); }, 1000);
+//#setTimeout(() => { sv.visualize([3,2,1]); }, 1500);
+//#setTimeout(() => { sv.visualize([1,2,3]); }, 2000);
+//#setTimeout(() => { sv.visualize({'json': 'dict'}); }, 2500);
 
 
 document.querySelectorAll('.example').forEach((el) => {
