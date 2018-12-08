@@ -6,7 +6,7 @@
   "main": "main.js",
   "scripts": {
     "webpack": "node_modules/webpack/bin/webpack.js --progress --colors",
-    "webpack-watch": "node_modules/webpack/bin/webpack.js --progress --colors --watch"
+    "monitor-webpack": "node_modules/webpack/bin/webpack.js --progress --colors --watch"
   },
   "author": "Jean-Marc Skopek",
   "license": "ISC",
