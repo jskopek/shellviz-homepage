@@ -10,16 +10,11 @@ class Shellviz {
         this.panels = {};
         this.el.innerHTML = '<div id="blank-canvas">Initialized, waiting for data...</div><div id="canvas"></div>';
 
-//        // automatically scroll down as values are added, but only if the user is already at the bottom
-//        window.atBottom = true;
-//        $(window).scroll(function() {
-//            window.atBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 100) ? true : false;
-//        });
-//        messageServer.on('data', function(id, data) {
-//            if(window.atBottom) {
-//                window.scrollTo(0, document.getElementById('canvas').scrollHeight);
-//            }
-//        });
+        // automatically scroll down as values are added, but only if the user is already at the bottom
+        this.atBottom = true;
+        $(el).scroll(() => {
+            this.atBottom = ($(el).scrollTop() + $(el).height() > $(el).find('#canvas').height() - 100) ? true : false;
+        });
     }
     visualize(data) {
         this.data(undefined, data);
@@ -44,6 +39,10 @@ class Shellviz {
             });
         }
 
+        // handle scrolling to bottom
+        if(this.atBottom) {
+            this.el.scrollTo(0, this.el.querySelector('#canvas').scrollHeight);
+        }
     }
     remove(panel) {
         delete panels[panel.id];
