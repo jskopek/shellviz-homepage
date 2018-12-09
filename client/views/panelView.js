@@ -74,7 +74,6 @@ class PanelView {
         }.bind(this));
 
         $(this.el).find('button.clear-button').on('click', function(e) { this.remove(); }.bind(this));
-        $(this.el).find('button.share-button').on('click', function(e) { this.getLink(); }.bind(this));
 
 
         this.dataView = this.getDataView();
