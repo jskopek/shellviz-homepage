@@ -36,6 +36,31 @@ button {
     display: none;
 }
 
+/* table data view */
+.table-data-view {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.table-values {
+    width: 100%;
+    border: 1px solid #f8f8f8;
+    border-radius: 4px;
+    border-spacing: 0;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.table-values thead td {
+    padding: 0.1em 0.3em;
+    margin: 0;
+}
+.table-values thead td {
+    background: #e2e2e2;
+}
+.table-values tbody td {
+    border-bottom: 1px solid #f8f8f8;
+    border-right: 1px solid #f8f8f8;
+}
+
 /* data view */
 .panel-view {
     position: relative;

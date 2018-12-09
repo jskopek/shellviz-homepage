@@ -14,6 +14,7 @@ var tableDataViewTemplate = require('pug-loader!../templates/tableDataView.pug')
 class TableDataView {
     constructor(data) {
         this.el = document.createElement('div');
+        this.el.classList.add('table-data-view');
         this.data = data;
         this.searchQuery = undefined;
     }
