@@ -22,22 +22,32 @@ html
                 h2(class='subtitle') Explore data visually<br/>straight from your code
         div(class='main')
             div(class='content')
-                h1 Libraries
-                h2(id='python')
-                    i(class='fab fa-python')
-                    span Python
-                pre.
-                    pip install shellviz
-                h2(id='javascript')
-                    i(class='fab fa-js-square')
-                    span Javascript
-                pre.
-                    npm install shellviz
-                h2(id='ruby')
-                    i(class='fas fa-gem')
-                    span Ruby
-                pre.
-                    gem install shellviz
+                h1 Getting Started
+                p Shellviz is a desktop application that helps you visualize your data. You can send data to Shellviz from within your code or an interactive shell through the client libraries, which work with Python, Javascript, and Ruby.
+                h2(id='download') 1. Download the App
+                p First, download the #[a(href='/') Shellviz app] and run it on your computer.
+                h2(id='libraries') 2. Install Client Library
+                p Next, install the shellviz client library using your programming language's package manager.
+                div(class='tab')
+                    button(class='tablinks', data-target='python')
+                        i(class='fab fa-python')
+                        span Python
+                    button(class='tablinks', data-target='javascript')
+                        i(class='fab fa-js-square')
+                        span Javascript
+                    button(class='tablinks', data-target='ruby')
+                        i(class='fas fa-gem')
+                        span Ruby
+                div(id='python' class='tabcontent')
+                    pre.
+                        pip install shellviz
+                div(id='javascript' class='tabcontent')
+                    pre.
+                        npm install shellviz
+                div(id='ruby' class='tabcontent')
+                    pre.
+                        gem install shellviz
+
 
                 h1 Visualizations
 
