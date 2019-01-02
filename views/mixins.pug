@@ -1,0 +1,12 @@
+mixin step(name, description, code, preview, visualize)
+    div(class='example', data-preview=preview data-visualize=visualize)
+        div(class='d-flex')
+            h3=name
+            div
+                a(class='btn btn-send')
+                    i(class='fas fa-rocket')
+                    span Send to Shellviz
+        p=description
+        pre=code
+
+
