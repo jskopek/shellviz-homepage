@@ -48,6 +48,21 @@ html
                     pre.
                         gem install shellviz
 
+                h2(id='first-command') 3. Send your first Shellviz command
+                p Finally, load up your programming language's interactive shell or your program code and enter a command to the Shellviz app:
+                +step('', '', "from shellviz import visualize\nvisualize('hello world')", '', 'hello world')
+
+                p Shellviz will always try to figure out the best way of displaying your data, but if you want you can explicity set the visualization #[em type].
+                +step('', '', "from shellviz import visualize\nvisualize([1,2,3,4], type='chart')", '', '[1,2,3,4]')
+
+                p And of course, you can visualize variables in your code. This can be very helpful when debugging or creating data visualization/manipulation scripts.
+                +step('', '', "from shellviz import visualize\n[your code goes here]\nvisualize(a_variable)", '', '{"name": "Jane Smith", "age": 32}')
+
+                h1 Example Scenarios
+                a(href='/examples/alien-sightings') Visualizing Alien Sightings
+                a(href='/examples/alien-sightings') Exploring your Application's Data
+                a(href='/examples/alien-sightings') A simple choose your own adventure game
+                a(href='/examples/alien-sightings') Writing a Data Explorer App
 
                 h1 Visualizations
 
@@ -76,7 +91,12 @@ html
                 h2 Downloading Excel Files
                 span(class='coming-soon') Coming Soon
 
+                h2 Visualizing Django Model Instances
+                span(class='coming-soon') Coming Soon
+
+                h2 REST Client with the Python Requests Library
+                span(class='coming-soon') Coming Soon
 
 
-        script(src='/static/main.js')
         script(src='/static/shellviz.bundle.js')
+        script(src='/static/main.js')

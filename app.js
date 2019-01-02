@@ -22,6 +22,9 @@ app.get('/', (req, res) => {
 app.get('/docs', (req, res) => {
     res.render('documentation');
 });
+app.get('/examples/alien-sightings', (req, res) => {
+    res.render('example-alien-sighting');
+});
 
 app.use('/updates/releases', express.static(path.join(__dirname, 'releases')));
 app.use('/static', express.static(path.join(__dirname, 'static')));
