@@ -1,5 +1,5 @@
-mixin step(name, description, code, preview, visualize)
-    div(class='example', data-preview=preview data-visualize=visualize)
+mixin step(name, description, code, visualize, visualizeJson, mode)
+    div(class='example', data-visualize=visualize, data-visualize-json=visualizeJson, data-mode=mode)
         div(class='d-flex')
             h3=name
             div
@@ -8,5 +8,11 @@ mixin step(name, description, code, preview, visualize)
                     span Send to Shellviz
         p=description
         pre=code
+
+
+mixin navigation(ac)
+    div(class='navigation')
+        a(href='/', class=ac == '' ? 'active' : '') Home
+        a(href='/docs', class=ac == 'documentation' ? 'active' : '') Documentation
 
 

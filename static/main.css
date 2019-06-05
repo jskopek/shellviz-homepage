@@ -9,6 +9,9 @@ h1,h2,h3,h4 {
 .text-light {
     color: #fff;
 }
+body p {
+    font-size: 1em;
+}
 /* end fonts */
 a.logo {
     text-decoration: none;
@@ -33,6 +36,8 @@ h2.subtitle {
     line-height: 1.2em;
     color: #DD2C00;
 }
+
+/* header */
 .header {
     background-image: linear-gradient(-180deg, #FDFDFD 0%, #FFF8E1 98%);
     padding: 75px 0 50px;
@@ -44,6 +49,22 @@ h2.subtitle {
 .sub-header-libraries-header {
     margin: 1em 0 0.2em 0;
 }
+.navigation {
+    position: fixed;
+    top: 1vh;
+    right: 2%;
+    text-align: right;
+}
+.navigation a {
+    color: #111;
+    font-weight: normal;
+    margin-left: 1em;
+}
+.navigation a.active {
+    text-decoration: none;
+    font-weight: bold;
+}
+/* end header */
 .content {
     width: 44%;
     margin-left: 3%;
@@ -125,9 +146,25 @@ h2.subtitle {
     background-color: #fff;
     border: 4px solid #e65100;
     border-radius: 8px;
-    padding: 10px 0;
     overflow-y: auto;
 }
+.shellviz-window:before {
+    content: '';
+    height: 35px;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    background: no-repeat 0% 50% url(osx-buttons.png) #e65100;
+}
+
+/* layout helpers */
+.ml-1 { margin-left: 0.5em; }
+.ml-2 { margin-left: 0.8em; }
+.ml-3 { margin-left: 1.5em; }
+.mr-1 { margin-right: 0.5em; }
+.mr-2 { margin-right: 0.8em; }
+.mr-3 { margin-right: 1.5em; }
+/* end layout helpers */
 
 /* ------------- TABS -------------------
  https://www.w3schools.com/howto/howto_js_tabs.asp */
@@ -145,7 +182,7 @@ h2.subtitle {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 1em 1.2em;
   transition: 0.3s;
 }
 

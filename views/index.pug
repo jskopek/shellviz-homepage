@@ -1,53 +1,34 @@
+extends layout.pug
 include mixins.pug
 
-html
-    head
-        title=Shellviz
-        link(rel='stylesheet',href='/static/main.css')
-        link(rel='stylesheet',href='https://fonts.googleapis.com/css?family=Inconsolata|Meera+Inimai')
-        link(rel='stylesheet',href='https://use.fontawesome.com/releases/v5.5.0/css/all.css',integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU',crossorigin='anonymous')
-        script(async,src='https://www.googletagmanager.com/gtag/js?id=UA-105680-12')
-        script.
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-105680-12');
-    body
-        div(class='shellviz-window')
-            img(src='/static/placeholder-window.png', width='100%')
-        div(class='header')
-            div(class='content')
-                a(href='/', class='logo')
-                    h1 Shellviz
-                h2(class='subtitle') Explore data visually<br/>straight from your code
-        div(class='sub-header')
-            div(class='content')
-                a(href=url,class='btn btn-download')
-                    i(class='fas fa-cloud-download-alt')
-                    span Download (OS X)
-                h2(class='text-light sub-header-libraries-header') Libraries for:
-                div(class='d-flex')
-                    a(class='btn btn-library', href='/docs#libraries')
-                        i(class='fab fa-python')
-                        span Python
-                    a(class='btn btn-library', href='/docs#libraries')
-                        i(class='fab fa-js-square')
-                        span Javascript
-                    a(class='btn btn-library', href='/docs#libraries')
-                        i(class='fas fa-gem')
-                        span Ruby
-        div(class='main')
-            div(class='content')
-                h1 What can you do with Shellviz?
-                +step('Explore JSON', 'JSON data can be examined in two ways: as a color-coded, collapsible view, and as a series of cards that can be searched or filtered.', "from shellviz import visualize\nufo_sightings_json = json.loads(urllib.request.urlopen('https://raw.githubusercontent.com/mozilla/metrics-graphics/master/examples/data/ufo-sightings.json').read())\nvisualize(ufo_sightings_json)", 'static/screenshots/jsonObject.png', '[{"year": "1945", "sightings": 6}, {"year": "1946", "sightings": 8}, {"year": "1947", "sightings": 34}, {"year": "1948", "sightings": 8}, {"year": "1949", "sightings": 15}, {"year": "1950", "sightings": 25}, {"year": "1951", "sightings": 20}, {"year": "1952", "sightings": 48}, {"year": "1953", "sightings": 34}, {"year": "1954", "sightings": 50}, {"year": "1955", "sightings": 31}, {"year": "1956", "sightings": 38}, {"year": "1957", "sightings": 67}, {"year": "1958", "sightings": 40}, {"year": "1959", "sightings": 47}, {"year": "1960", "sightings": 64}, {"year": "1961", "sightings": 39}, {"year": "1962", "sightings": 55}, {"year": "1963", "sightings": 75}, {"year": "1964", "sightings": 77}, {"year": "1965", "sightings": 167}, {"year": "1966", "sightings": 169}, {"year": "1967", "sightings": 178}, {"year": "1968", "sightings": 183}, {"year": "1969", "sightings": 138}, {"year": "1970", "sightings": 126}, {"year": "1971", "sightings": 110}, {"year": "1972", "sightings": 146}, {"year": "1973", "sightings": 209}, {"year": "1974", "sightings": 241}, {"year": "1975", "sightings": 279}, {"year": "1976", "sightings": 246}, {"year": "1977", "sightings": 239}, {"year": "1978", "sightings": 301}, {"year": "1979", "sightings": 221}, {"year": "1980", "sightings": 211}, {"year": "1981", "sightings": 146}, {"year": "1982", "sightings": 182}, {"year": "1983", "sightings": 132}, {"year": "1984", "sightings": 172}, {"year": "1985", "sightings": 192}, {"year": "1986", "sightings": 173}, {"year": "1987", "sightings": 193}, {"year": "1988", "sightings": 203}, {"year": "1989", "sightings": 220}, {"year": "1990", "sightings": 217}, {"year": "1991", "sightings": 210}, {"year": "1992", "sightings": 228}, {"year": "1993", "sightings": 285}, {"year": "1994", "sightings": 381}, {"year": "1995", "sightings": 1336}, {"year": "1996", "sightings": 862}, {"year": "1997", "sightings": 1248}, {"year": "1998", "sightings": 1812}, {"year": "1999", "sightings": 2906}, {"year": "2000", "sightings": 2780}, {"year": "2001", "sightings": 3105}, {"year": "2002", "sightings": 3176}, {"year": "2003", "sightings": 3896}, {"year": "2004", "sightings": 4208}, {"year": "2005", "sightings": 3996}, {"year": "2006", "sightings": 3590}, {"year": "2007", "sightings": 4195}, {"year": "2008", "sightings": 4705}, {"year": "2009", "sightings": 4297}, {"year": "2010", "sightings": 2531}]')
-                +step('Plot Data', '', "from shellviz import visualize\nufo_sightings_json = json.loads(urllib.request.urlopen('https://raw.githubusercontent.com/mozilla/metrics-graphics/master/examples/data/ufo-sightings.json').read())\nvisualize([s['sightings'] for s in ufo_sightings_json])", 'static/screenshots/areaChart.png', '[6, 8, 34, 8, 15, 25, 20, 48, 34, 50, 31, 38, 67, 40, 47, 64, 39, 55, 75, 77, 167, 169, 178, 183, 138, 126, 110, 146, 209, 241, 279, 246, 239, 301, 221, 211, 146, 182, 132, 172, 192, 173, 193, 203, 220, 217, 210, 228, 285, 381, 1336, 862, 1248, 1812, 2906, 2780, 3105, 3176, 3896, 4208, 3996, 3590, 4195, 4705, 4297, 2531]')
-                +step('Map Data', '', "from shellviz import visualize\nvisualize({'latitude': 37.263056, 'longitude': -115.79302})", 'static/screenshots/location.png','{"latitude": 37.263056, "longitude": -115.79302}')
-                +step('View Images', '', "from shellviz import visualize\nvisualize('https://s.hswstatic.com/gif/area-51-signs-360a.jpg')", 'static/screenshots/image.png', 'https://s.hswstatic.com/gif/area-51-signs-360a.jpg')
-                +step('Progress Bar', '', "from shellviz import visualize\nvisualize(0.3)", 'static/screenshots/text.png', '0.3')
-                +step('Markdown', '', "from shellviz import visualize\nvisualize('# This is some Markdown\nAnd this is some **strong** text\nAnd a list:\n- First item\n- Second item')", 'static/screenshots/text.png', '# This is some Markdown\nAnd this is some **strong** text\nAnd a list:\n- First item\n- Second item')
-                +step('Simple Text', '', "a(class='btn btn-send') Send to Shellviz", 'static/screenshots/text.png', 'hello world')
+block header_extra
+    div(class='sub-header')
+        div(class='content')
+            a(href=url,class='btn btn-download')
+                i(class='fas fa-cloud-download-alt')
+                span Download (OS X)
+            h2(class='text-light sub-header-libraries-header') Libraries for:
+            div(class='d-flex')
+                a(class='btn btn-library', href='/docs#libraries')
+                    i(class='fab fa-python')
+                    span Python
+                a(class='btn btn-library', href='/docs#libraries')
+                    i(class='fab fa-js-square')
+                    span Javascript
+                a(class='btn btn-library', href='/docs#libraries')
+                    i(class='fas fa-gem')
+                    span Ruby
+
+block content
+    h1 What can you do with Shellviz?
+    +step('Explore JSON', 'JSON data can be examined in two ways: as a color-coded, collapsible view, and as a series of cards that can be searched or filtered.', "from shellviz import visualize\nufo_sightings_json = json.loads(urllib.request.urlopen('https://raw.githubusercontent.com/mozilla/metrics-graphics/master/examples/data/ufo-sightings.json').read())\nvisualize(ufo_sightings_json)", '[{"year": "1945", "sightings": 6}, {"year": "1946", "sightings": 8}, {"year": "1947", "sightings": 34}, {"year": "1948", "sightings": 8}, {"year": "1949", "sightings": 15}, {"year": "1950", "sightings": 25}, {"year": "1951", "sightings": 20}, {"year": "1952", "sightings": 48}, {"year": "1953", "sightings": 34}, {"year": "1954", "sightings": 50}, {"year": "1955", "sightings": 31}, {"year": "1956", "sightings": 38}, {"year": "1957", "sightings": 67}, {"year": "1958", "sightings": 40}, {"year": "1959", "sightings": 47}, {"year": "1960", "sightings": 64}, {"year": "1961", "sightings": 39}, {"year": "1962", "sightings": 55}, {"year": "1963", "sightings": 75}, {"year": "1964", "sightings": 77}, {"year": "1965", "sightings": 167}, {"year": "1966", "sightings": 169}, {"year": "1967", "sightings": 178}, {"year": "1968", "sightings": 183}, {"year": "1969", "sightings": 138}, {"year": "1970", "sightings": 126}, {"year": "1971", "sightings": 110}, {"year": "1972", "sightings": 146}, {"year": "1973", "sightings": 209}, {"year": "1974", "sightings": 241}, {"year": "1975", "sightings": 279}, {"year": "1976", "sightings": 246}, {"year": "1977", "sightings": 239}, {"year": "1978", "sightings": 301}, {"year": "1979", "sightings": 221}, {"year": "1980", "sightings": 211}, {"year": "1981", "sightings": 146}, {"year": "1982", "sightings": 182}, {"year": "1983", "sightings": 132}, {"year": "1984", "sightings": 172}, {"year": "1985", "sightings": 192}, {"year": "1986", "sightings": 173}, {"year": "1987", "sightings": 193}, {"year": "1988", "sightings": 203}, {"year": "1989", "sightings": 220}, {"year": "1990", "sightings": 217}, {"year": "1991", "sightings": 210}, {"year": "1992", "sightings": 228}, {"year": "1993", "sightings": 285}, {"year": "1994", "sightings": 381}, {"year": "1995", "sightings": 1336}, {"year": "1996", "sightings": 862}, {"year": "1997", "sightings": 1248}, {"year": "1998", "sightings": 1812}, {"year": "1999", "sightings": 2906}, {"year": "2000", "sightings": 2780}, {"year": "2001", "sightings": 3105}, {"year": "2002", "sightings": 3176}, {"year": "2003", "sightings": 3896}, {"year": "2004", "sightings": 4208}, {"year": "2005", "sightings": 3996}, {"year": "2006", "sightings": 3590}, {"year": "2007", "sightings": 4195}, {"year": "2008", "sightings": 4705}, {"year": "2009", "sightings": 4297}, {"year": "2010", "sightings": 2531}]')
+    +step('Plot Data', '', "from shellviz import visualize\nufo_sightings_json = json.loads(urllib.request.urlopen('https://raw.githubusercontent.com/mozilla/metrics-graphics/master/examples/data/ufo-sightings.json').read())\nvisualize([s['sightings'] for s in ufo_sightings_json])", '[6, 8, 34, 8, 15, 25, 20, 48, 34, 50, 31, 38, 67, 40, 47, 64, 39, 55, 75, 77, 167, 169, 178, 183, 138, 126, 110, 146, 209, 241, 279, 246, 239, 301, 221, 211, 146, 182, 132, 172, 192, 173, 193, 203, 220, 217, 210, 228, 285, 381, 1336, 862, 1248, 1812, 2906, 2780, 3105, 3176, 3896, 4208, 3996, 3590, 4195, 4705, 4297, 2531]')
+    +step('Map Data', '', "from shellviz import visualize\nvisualize({'latitude': 37.263056, 'longitude': -115.79302})", '{"latitude": 37.263056, "longitude": -115.79302}')
+    +step('View Images', '', "from shellviz import visualize\nvisualize('https://s.hswstatic.com/gif/area-51-signs-360a.jpg')", 'https://s.hswstatic.com/gif/area-51-signs-360a.jpg')
+    +step('Progress Bar', '', "from shellviz import visualize\nvisualize(0.3)", '0.3')
+    +step('Markdown', '', "from shellviz import visualize\nvisualize('# This is some Markdown\nAnd this is some **strong** text\nAnd a list:\n- First item\n- Second item')", '# This is some Markdown\nAnd this is some **strong** text\nAnd a list:\n- First item\n- Second item')
+    +step('Simple Text', '', "a(class='btn btn-send') Send to Shellviz", 'hello world')
 
 
-        script(src='/static/shellviz.bundle.js')
-        script(src='/static/main.js')
-        script(src='/static/homepage.js')
+block foot
+    script(src='/static/homepage.js')

@@ -32163,7 +32163,7 @@ var panelViewTemplate = __webpack_require__(40);
 
 
 var PanelView = function () {
-    function PanelView(id, client, data, updated_at) {
+    function PanelView(id, client, data, updated_at, mode) {
         _classCallCheck(this, PanelView);
 
         this.id = id;
@@ -32171,7 +32171,7 @@ var PanelView = function () {
         this.el = document.createElement('div');
         this.el.classList.add('panel-view');
         this.data = data;
-        this.mode = this.getDefaultMode();
+        this.mode = mode || this.getDefaultMode();
         this.updatedAt = updated_at ? new Date(updated_at) : new Date();
         this.updatedAtTimer = undefined;
         this.dataView = undefined;
@@ -32498,17 +32498,20 @@ var Shellviz = function () {
     _createClass(Shellviz, [{
         key: 'visualize',
         value: function visualize(data) {
-            var id = Math.random();
-            this.data(id, data);
+            this.data(undefined, data);
         }
     }, {
         key: 'data',
-        value: function data(id, _data) {
+        value: function data(id, _data, mode) {
+            if (!id) {
+                id = Math.random();
+            }
             if (this.panels[id]) {
                 this.panels[id].update(_data);
             } else {
                 var client = undefined; // carryover from web version
-                this.panels[id] = new PanelView(id, client, _data);
+                var mode = mode;
+                this.panels[id] = new PanelView(id, client, _data, undefined, mode);
                 var containerEl = this.el.querySelector('#canvas');
                 containerEl.appendChild(this.panels[id].el);
                 this.panels[id].render();

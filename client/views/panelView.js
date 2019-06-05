@@ -32,13 +32,13 @@ var panelViewTemplate = require('pug-loader!../templates/panelView.pug');
 
 
 class PanelView {
-    constructor(id, client, data, updated_at) {
+    constructor(id, client, data, updated_at, mode) {
         this.id = id;
         this.client = client;
         this.el = document.createElement('div');
         this.el.classList.add('panel-view');
         this.data = data;
-        this.mode = this.getDefaultMode();
+        this.mode = mode || this.getDefaultMode();
         this.updatedAt = updated_at ? new Date(updated_at) : new Date();
         this.updatedAtTimer = undefined;
         this.dataView = undefined;

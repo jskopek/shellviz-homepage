@@ -17,15 +17,18 @@ class Shellviz {
         });
     }
     visualize(data) {
-        var id = Math.random();
-        this.data(id, data);
+        this.data(undefined, data);
     }
-    data(id, data) {
+    data(id, data, mode) {
+        if(!id) {
+            id = Math.random();
+        }
         if(this.panels[id]) {
             this.panels[id].update(data);
         } else {
             var client = undefined; // carryover from web version
-            this.panels[id] = new PanelView(id, client, data);
+            var mode = mode;
+            this.panels[id] = new PanelView(id, client, data, undefined, mode);
             var containerEl = this.el.querySelector('#canvas');
             containerEl.appendChild(this.panels[id].el);
             this.panels[id].render();

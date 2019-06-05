@@ -4,11 +4,24 @@ document.querySelectorAll('.example').forEach((el) => {
     el.addEventListener('click', (e) => {
         document.querySelectorAll('.example').forEach((el) => { el.classList.remove('active'); });
         el.classList.add('active');
-        var data = el.dataset['visualize'];
-        try {
-            data = JSON.parse(data);
-        } catch(e) {}
-        sv.data(Math.random(), data);
+
+        var mode = el.dataset['mode'];
+        if(el.dataset['visualize']) {
+            var data = el.dataset['visualize'];
+            try {
+                data = JSON.parse(data, mode);
+            } catch(e) {}
+            sv.data(undefined, data);
+        } else if(el.dataset['visualizeJson']) {
+            var jsonPath = el.dataset['visualizeJson'];
+            fetch(`/static/examples/${jsonPath}`)
+            .then((response) => {
+                return response.json()
+            })
+            .then((jsonResponse) => {
+                return sv.data(undefined, jsonResponse, mode);
+            });
+        }
     });
 })
 
