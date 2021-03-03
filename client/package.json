@@ -34,7 +34,7 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "pg": "^6.3.1",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "pug-loader": "^2.3.0",
     "pusher": "^1.5.1",
     "pusher-js": "^4.4.0",
